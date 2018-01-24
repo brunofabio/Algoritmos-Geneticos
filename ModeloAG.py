@@ -21,4 +21,7 @@ def prepare_dataset(data, window_size):
     for i in range(len(data)-window_size-1):
         X = np.vstack([X, data[i:(i + window_size), 0]])
         Y = np.append(Y, data[i + window_size, 0])
+    X = np.reshape(X, (len(X), window_size, 1))
+    Y = np.reshape(Y, (len(Y), 1))
+    return X, Y
     
